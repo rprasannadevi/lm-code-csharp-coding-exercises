@@ -5,8 +5,11 @@ namespace Exercises
     {
         public static DateTime AddGigaSecond(DateTime dateTime)
         {
-            // Replace the exception statement below with your code!
-            throw new NotImplementedException();
+
+            const double GIGA_SECOND = 1E9;
+            DateTime addedGigaSeconds;
+			addedGigaSeconds = dateTime.AddSeconds(GIGA_SECOND);
+            return addedGigaSeconds;
         }
     }
 }
