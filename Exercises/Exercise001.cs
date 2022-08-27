@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using Exercises.Models;
 
 namespace Exercises
@@ -8,36 +9,68 @@ namespace Exercises
     {
         public string CapitalizeWord(string word)
         {
-            // Replace the exception statement below with your code!
-            throw new NotImplementedException();
+            string sFlcWord="";
+			if (String.IsNullOrEmpty(word))
+                sFlcWord = word;
+			else if (word.Length == 1)
+                sFlcWord = char.ToString(char.ToUpper(word[0]));
+            else
+				sFlcWord = char.ToString(char.ToUpper(word[0])) + word.Substring(1);
+            
+            return sFlcWord;
         }
 
         public string GenerateInitials(string firstName, string lastName)
         {
-            // Replace the exception statement below with your code!
-            throw new NotImplementedException();
+            string sInitials = "";
+            if (firstName != null && lastName != null)
+                sInitials = char.ToString(char.ToUpper(firstName[0])) + "." + char.ToString(char.ToUpper(lastName[0]));
+                //Console.WriteLine(sInitials);
+            return sInitials;
         }
 
         public double AddVat(double originalPrice, double vatRate)
         {
-            // Replace the exception statement below with your code!
-            throw new NotImplementedException();
+            if (originalPrice < 0)
+                throw new ArgumentException("Price cannot be negative. Please enter a valid price.");
+            else if(vatRate <0)
+                throw new ArgumentException("VAT cannot be negative. Please enter a valid VAT.");
 
-            // NB: Look in Exercise001Tests.cs
-            //     There is a test with commented out assertions.
-            //     For an extra challenge, uncomment those assertions and make that test pass too.
-        }
+			return originalPrice + Math.Round(((originalPrice * vatRate) / 100), 2);
+		}
 
         public string Reverse(string sentence)
         {
-            // Replace the exception statement below with your code!
-            throw new NotImplementedException();
+            string reverseString = "";
+			
+            if (String.IsNullOrEmpty(sentence))
+                reverseString = sentence;
+            else if (sentence.Length > 0)
+            {
+				var sentenceLength = sentence.Length - 1;
+				for (int i = sentenceLength; i >= 0; i--)
+                    reverseString = reverseString + sentence.Substring(i, 1);
+				
+            }
+            //Console.WriteLine(reverseString);
+			return reverseString;
         }
 
         public int CountLinuxUsers(List<User> users)
         {
-            // Replace the exception statement below with your code!
-            throw new NotImplementedException();
-        }
+            var iCountLinuxUsers = 0;
+            if(users != null)
+            {
+                foreach (var user in users)
+                {
+                    if(user.Type.Equals("Linux"))
+                        iCountLinuxUsers = iCountLinuxUsers + 1;
+                    else
+                        iCountLinuxUsers = 0;
+			    }
+            }
+            //Console.WriteLine(iCountLinuxUsers);
+            return iCountLinuxUsers;
+		}
     }
 }
