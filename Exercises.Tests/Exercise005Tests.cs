@@ -35,7 +35,7 @@ namespace Exercises.Tests
         {
             Exercise005.IsPangram("the quick brown fox jumps over the lazy dog").Should().Be(true);
         }
-
+        
         [Test]
         public void IsPangram_Should_Return_True_For_MixedCase_Pangram()
         {
