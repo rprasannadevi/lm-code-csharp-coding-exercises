@@ -63,14 +63,13 @@ namespace Exercises
             {
                 foreach (var user in users)
                 {
-                    if(user.Type.Equals("Linux"))
+                    if (user.Type.Equals("Linux"))
                         iCountLinuxUsers = iCountLinuxUsers + 1;
-                    else
-                        iCountLinuxUsers = 0;
 			    }
             }
             //Console.WriteLine(iCountLinuxUsers);
             return iCountLinuxUsers;
-		}
+           
+        }
     }
 }
