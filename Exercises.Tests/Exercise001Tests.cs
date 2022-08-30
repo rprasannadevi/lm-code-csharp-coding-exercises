@@ -113,5 +113,46 @@ namespace Exercises.Tests
             Exercise001.CountLinuxUsers(null).Should().Be(0);
             Exercise001.CountLinuxUsers(new List<User>()).Should().Be(0);
         }
+
+        [Test]
+
+        public void CountLinuxUsers_Should_Return_Correct_Count_With_Different_Set()
+
+        {
+
+            // This is using the latest C# language features
+
+            // This is the same as doing User u1 = new User("Heather", "Windows 10", "Windows");
+
+            User u1 = new("Heather", "Windows 10", "Windows");
+
+            User u2 = new("Paul", "Windows 95", "Windows");
+
+            User u3 = new("Sheila", "CentOS 7", "Linux");
+
+            User u4 = new("Pedro", "Ubuntu 18.04", "Linux");
+
+            User u5 = new("Prasanna", "Windows 95", "Windows");
+
+            var users = new List<User>
+
+            {
+
+                u1,
+
+                u2,
+
+                u3,
+
+                u4,
+
+                u5
+
+            };
+
+            Exercise001.CountLinuxUsers(users).Should().Be(2);
+
+        }
+
     }
 }
