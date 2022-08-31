@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using Exercises.Models;
 
 namespace Exercises
@@ -58,7 +59,18 @@ namespace Exercises
 
         public int CountLinuxUsers(List<User> users)
         {
-            var iCountLinuxUsers = 0;
+            if (users != null)
+            {
+                var iCountLinuxUsers = from n in users
+                                       where n.Type == "Linux"
+                                       select n;
+                //Console.WriteLine(iCountLinuxUsers.Count());
+                return iCountLinuxUsers.Count();
+            }
+            else
+                return 0;
+
+            /*var iCountLinuxUsers = 0;
             if(users != null)
             {
                 foreach (var user in users)
@@ -68,8 +80,7 @@ namespace Exercises
 			    }
             }
             //Console.WriteLine(iCountLinuxUsers);
-            return iCountLinuxUsers;
-           
+            return iCountLinuxUsers;*/
         }
     }
 }
